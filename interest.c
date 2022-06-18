@@ -8,7 +8,6 @@ void si();
 int main()
 {
     int choice = 3;
-    clrscr();
     printf("What do you want to calculate?\n");
     while(choice < 1 || choice > 2 ) {
         printf("Enter 1 for Simple Interest and 2 for Compound Interest:\n");
