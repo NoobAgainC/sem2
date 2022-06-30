@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<conio.h>
 
 int main()
 {
@@ -17,6 +16,5 @@ int main()
         if (large < num) large = num;
     }
     printf("Sum of given numbers is %d.\nAverage of given numbers is %.2f.\nSmallest number is %d.\nLargest number is %d.\n", sum, sum / 10.0, small, large);
-    getch();
     return 0;
 }
