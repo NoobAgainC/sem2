@@ -3,10 +3,13 @@
 
 #define max 10
 
+void swap_sort(int array[], int len);
+void swap(int *a, int *b);
+
 int main()
 {
     int num[max];
-    int large1 = -1, large2 = -1, i, len = 0;
+    int i, len = 0;
     
 
     while(len < 1 || len > max) 
@@ -17,15 +20,28 @@ int main()
     printf("Enter all numbers in array:\n");
     for(i = 0; i < len; i++) scanf("%d", &num[i]);
 
-    for(i = 0; i < len; i++)
-    {
-        if (num[i] >  large1) large1 = num[i];
-    }
-    for(i = 0; i < len; i++)
-    {
-        if (num[i] >  large2 && num[i] < large1) large2 = num[i];
-    }
-    if (large2 == -1) large2 = num[0];
-    printf("The second largest number is %d.\n", large2);
+    swap_sort(num, len);
+    
+    printf("The second largest number is %d.\n", num[len - 2]);
     return 0;
+}
+
+void swap_sort(int array[], int len)
+{
+    int i, j;
+    for(i = 0; i < len; i++)
+    {
+        for(j = 0; j < len; j++)
+        {
+            if(array[i] < array[j]) swap(&array[i], &array[j]);
+        }
+    }
+}
+
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+    
 }
