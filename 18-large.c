@@ -6,7 +6,7 @@
 int main()
 {
     int num[max];
-    int large1, large2, i, len = 12;
+    int large1 = -1, large2 = -1, i, len = 0;
     
 
     while(len < 1 || len > max) 
@@ -17,15 +17,15 @@ int main()
     printf("Enter all numbers in array:\n");
     for(i = 0; i < len; i++) scanf("%d", &num[i]);
 
-    for(i = 1, large1 = num[0], large2 = num[0]; i < len; i++)
+    for(i = 0; i < len; i++)
     {
-        if (num[i] > large1) 
-        {
-            large2 = large1;
-            large1 = num[i];
-        }
-        else if (num[i] > large2) large2 = num[i];
+        if (num[i] >  large1) large1 = num[i];
     }
+    for(i = 0; i < len; i++)
+    {
+        if (num[i] >  large2 && num[i] < large1) large2 = num[i];
+    }
+    if (large2 == -1) large2 = num[0];
     printf("The second largest number is %d.\n", large2);
     return 0;
 }
