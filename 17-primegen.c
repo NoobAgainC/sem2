@@ -8,10 +8,10 @@ int main()
 {
     long n, i;
     
-    printf("Enter the number for getting prime numbers till that number:");
+    printf("Enter the number for getting prime numbers between 0 and that number: ");
     scanf("%ld", &n);
-    printf("Prime numbers between 1 and %ld are:", n);
-    for(i = 1; i <= n; i++)
+    printf("Prime numbers between 1 and %ld are:\n", n);
+    for(i = 1; i < n; i++)
     {
         prime(i);
     }

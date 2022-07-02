@@ -42,7 +42,7 @@ void input(){
         }
         printf("\n\t\t\t");
     }
-    printf("\nEnter the elements of first array:\n");
+    printf("\nEnter the elements of first matrix:\n");
     for (i = 0; i < column; i++)
     {
         for (j = 0; j < row; j++)
@@ -51,7 +51,7 @@ void input(){
         }
         printf("\n");
     }
-    printf("\nEnter the elements of second array:\n");
+    printf("\nEnter the elements of second matrix:\n");
     for (i = 0; i < column; i++)
     {
         for (j = 0; j < row; j++)

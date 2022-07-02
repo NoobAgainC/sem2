@@ -10,7 +10,6 @@ int main()
     printf("Enter a string:\n\t\t");
     scanf("%[^\n]", a);
     len = strlen(a);
-    printf("%d", len);
     printf("The reverse of entered string is :\n\t\t");
     for (i =  len - 1; i >= 0; i--)
     {
