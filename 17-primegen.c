@@ -28,7 +28,7 @@ void prime(int num)
         printf("%ld\n", num);
         return;
     }
-    if (num % 2 == 0 || num < 2 || num % 3 == 0) return;
+    if (num % 2 == 0 || num < 2) return;
     sqroot = round(sqrt(num));
     for (i = sqroot; i > 1; i--) {
         if (num % i == 0) {
