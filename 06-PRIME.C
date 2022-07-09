@@ -10,7 +10,7 @@ int main() {
     printf("Enter a number: ");
     scanf("%ld", &num);
     if (num == 2) return exit_prog(0);
-    if (num % 2 == 0 || num < 2 || num % 3 == 0) return exit_prog(1);
+    if (num % 2 == 0 || num < 2) return exit_prog(1);
     sqroot = sqrt(num);
     for (i = sqroot; i > 1; i--) {
         if (num % i == 0) {
