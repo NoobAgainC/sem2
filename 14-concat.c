@@ -5,19 +5,19 @@
 int main()
 {
     int len1, len2, i;
-    char first[200];
-    char second[100];
+    char first[100], second[100], third[200];
     printf("Enter two strings that you want to concat:\n");
     scanf("%[^\n] %[^\n]",first, second);
     len1 = strlen(first);
     len2 = strlen(second);
 
-    for (i = 0; i < len2; i++)
+    for (i = 0; i < len1 + len2; i++)
     {
-        first[i + len1] = second[i];
+        if(i >= len1) third[i] = second[i - len1];
+        else third[i] = first[i];
     }
-    first[i + len1 + 1] = '\0';
-    printf("\t\t%s\n", first);
+    third[len1 + len2] = '\0';
+    printf("\t\t%s\n", third);
     getch();
     return 0;
 }
