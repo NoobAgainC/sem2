@@ -4,16 +4,20 @@
 int main()
 {
     char a[100];
-    int len, i = 0;
+    int len = 1, i = 0, prev = 1;
 
     printf("Enter a string:\n\t\t");
-    scanf("%[^\n]", a);
+    fgets(a, 100, stdin);
 
     while(a[i] != '\0') 
     {
-        if((a[i] >= 'a' && a[i] <= 'z') || (a[i] >= 'A' && a[i] <= 'Z')) len++;
+        if(a[i] == ' ') 
+        {
+            if ((a[i-1] >= 'a' && a[i-1] <= 'z') || (a[i-1] >= 'A' && a[i-1] <= 'Z')) prev = 0;
+            if (prev == 0 && ((a[i+1] >= 'a' && a[i+1] <= 'z') || (a[i+1] >= 'A' && a[i+1] <= 'Z'))) len++;
+        }
         i++;
     }
-    printf("Length of inputted string is %d and number of words in it is %d.\n", i, len);
+    printf("Length of inputted string is %d and number of words in it is %d.\n", i-1, len);
     getch();
 }
