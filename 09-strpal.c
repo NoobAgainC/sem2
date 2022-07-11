@@ -15,7 +15,7 @@ int main()
     {
         out[i] = in[len - i - 1];
 
-        if(out[i] != in[i])
+        if(tolower(out[i]) != tolower(in[i]))
         {
             printf("The entered string is not a pallindrome.\n");
             getch();
