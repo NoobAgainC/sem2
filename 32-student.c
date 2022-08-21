@@ -2,78 +2,40 @@
 #include <conio.h>
 #include <stdlib.h>
 
-typedef struct pupil{
+#define MAX 10
+
+typedef struct{
     char name[32];
     unsigned int roll;
     char city[32];
     unsigned int zip;
-    struct pupil *next;
 } stud;
 
-stud * insert_student(int num, stud *student);
-void print_student(stud * student);
-
-int main()
+void main()
 {
-
-    int num;
-    stud *student;
-    printf("Enter the number of students: ");
-    scanf("%d", &num);
-
-    student = insert_student(num, student);
-    print_student(student);
-
-}
-
-stud * insert_student(int num, stud *head)
-{
-    stud *temp;
-    int i;
-    stud **nxt = &head;
+    stud student[MAX];
+    int num = 0, i;
+    while(num < 1 || num > 10)
+    {
+        printf("Enter the number of students (MAX = %d): ", MAX);
+        scanf("%d", &num);
+    }
+    
     for (i = 0; i < num; i++)
     {
-        temp = (stud *) (malloc(sizeof(stud)));
-        printf("Enter following student details:\nName: ");
-        scanf("%s", temp->name);
+        printf("Enter following student details for student no. %d:\nName: ", i+1);
+        scanf("%s", student[i].name);
         printf("Roll Number: ");
-        scanf("%d", &temp->roll);
+        scanf("%u", &student[i].roll);
         printf("City: ");
-        scanf("%s", temp->city);
+        scanf("%s", student[i].city);
         printf("Zipcode: ");
-        scanf("%d", &temp->zip);
-
-        temp -> next = NULL;
-
-        *nxt = temp;
-
-        nxt = &temp->next;
+        scanf("%u", &student[i].zip);
     }
-    return head;
-
-}
-
-void print_student(stud * student)
-{
-    stud *current = student;
-    int count = 1;
-    // printf("|Serial No.|\t\t|Student Name|\t\t|Student Roll Number|\t\t|City|\t\t|Zipcode|\n");
-    // while (current != NULL)
-    // {
-    //     printf("%s\t\t%d\t\t%s\t\t%d\n", current->name, current->roll, current->city, current->zip);
-    //     current = current->next;
-    // }
-
-    FILE *fpt;
-
-    fpt = fopen("Students.csv", "w+");
-    fprintf(fpt, "Serial No., Student Name, Student Roll Number, City, Zipcode\n" );
-
-    while (current != NULL)
-    {
-        fprintf(fpt, "%d,%s,%d,%s,%d\n",count++, current->name, current->roll, current->city, current->zip);
-        current = current->next;
-    }
-    fclose(fpt);
     
+    for(i = 0; i < num; i++)
+    {
+        printf("Name of student: %s\n\tRoll No.: %u\n\tCity: %s\n\tZipcode: %u\n", student[i].name, student[i].roll, student[i].city, student[i].zip);
+    }
+    getch();
 }
